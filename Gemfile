@@ -43,3 +43,31 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'twitter-bootstrap-rails'
+
+gem 'rails_12factor', group: :production
+gem 'beautiful-log'
+
+gem 'devise'
+
+gem 'faker'
+
+group :development do
+  gem 'letter_opener_web'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'dotenv-rails'
+end
+
+gem 'rails_admin'
+gem 'cancan'
+
+gem 'activeresource'
+gem "her"
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+gem 'carrierwave'
+gem 'rmagick'

@@ -3241,3 +3241,5 @@ ActionController::RoutingError (No route matches [GET] "/poems"):
   /Users/fujinojunko/.rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
 
 
+[routes ] started
+[routes ] finished

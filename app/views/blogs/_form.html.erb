@@ -19,6 +19,11 @@
   <%= f.label :内容 %>
   <%= f.text_field :content, class: 'form-control' %>
   <br>
+  <%= image_tag @blog.picture if @blog.picture %>
+  <%= f.file_field :picture %>
+  <%= f.hidden_field :picture_cache %>
+  <br>
+
   <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 
 <% end %>

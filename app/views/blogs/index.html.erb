@@ -1,25 +1,25 @@
 <div class="container">
  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
 
-   <%= link_to "投稿する", new_blog_path, class: 'btn btn-default' %>
+   <%= link_to "投稿", new_blog_path, class: 'btn btn-default' %>
 
    <% @blogs.each do |blog| %>
    <div class="row" id="row1">
-    <div class="col" id="col1">
-      <h4><strong>タイトル:<%= blog.title %></strong></h4>
-      <p>本文:<%= blog.content %></p>
-    </div>
-    <div class="col" id="col2">
-      <p class="img"><%= profile_img(blog.user,"blogs") if profile_img(blog.user,"blogs") %></p>
-      <p><%= blog.user.name %></p>
+    <div class="col">
+      <h4><strong><%= blog.title %></strong></h4>
+      <p class="img"><%= image_tag blog.picture if blog.picture %></p>
+      <p><%= blog.content %></p>
     </div>
    </div>
    <div class="row" id="row2">
-    <div class="col" id="col1">
-      <%= link_to "編集", edit_blog_path(blog.id), class: 'btn btn-sml btn-success' %>
-      <%= link_to "削除", blog_path(blog.id), method: :delete, data: {confirm: '本当に削除していいですか？'}, class: 'btn btn-sml btn-danger' %>
-    </div>
+     <div class="col" id="col1">
+       <% if user_signed_in? && blog.user_id == current_user.id %>
+        <%= link_to "編集", edit_blog_path(blog.id), class: 'btn btn-sml btn-success' %>
+        <%= link_to "削除", blog_path(blog.id), method: :delete, data: {confirm: '本当に削除していいですか？'}, class: 'btn btn-sml btn-danger' %>
+       <% end %>
+     </div>
     <div class="col" id="col2">
+      <p><%= blog.user.name %></p>
       <p id="tw_date">
        作成日:<%= blog.created_at.to_s(:datetime) %><br>
        更新日:<%= blog.updated_at.to_s(:datetime) %></p>

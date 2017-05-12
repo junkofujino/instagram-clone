@@ -30,7 +30,7 @@
 #col2 {
     width: 30%;
     text-align: right;
-    float: left;
+    float: right;
   }
 
 input[type="submit"].btn-block{
@@ -39,6 +39,12 @@ input[type="submit"].btn-block{
 
 .container{
   padding-bottom: 85px;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/assets/glyphicons-halflings-regular.eot');
+  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
 p#tw_date {

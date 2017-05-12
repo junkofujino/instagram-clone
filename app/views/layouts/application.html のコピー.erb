@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>instagram-clone</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav">
+          <li><%= link_to "", root_path, class: "glyphicon glyphicon-home" %></li>
+        </ul>
+
+        <button type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+        </button>
+
+        <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "", blogs_path, class: "glyphicon glyphicon-time" %></li>
+                <li><%= link_to "", blogs_path, class: "glyphicon glyphicon-heart-empty" %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "", edit_user_registration_path, class: "glyphicon glyphicon-user" %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+                <li><%= link_to "サインアップ", new_user_registration_path %></li>
+              <% end %>
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  </header>
+
+  <% flash.each do |key, value| %>
+    <% key = "info" if key == "notice" %>
+    <% key = "danger"  if key == "alert" %>
+    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
+
+  <%= yield %>
+
+  <footer>
+    <p>運営会社DIVE INTO CODE株式会社</p>
+    <p>© 2015-2016 Copyright DIVE INTO CODE Corp.</p>
+  </footer>
+
+</body>
+</html>

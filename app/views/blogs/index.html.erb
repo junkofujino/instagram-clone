@@ -1,7 +1,9 @@
 <div class="container">
  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
 
-   <%= link_to "投稿", new_blog_path, class: 'btn btn-default' %>
+   <% if user_signed_in? %>
+     <%= link_to "投稿", new_blog_path, class: 'btn btn-default' %>
+   <% end %>
 
    <% @blogs.each do |blog| %>
    <div class="row" id="row1">
